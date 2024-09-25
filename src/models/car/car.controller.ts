@@ -1,12 +1,14 @@
-import { Body, Controller,Delete,Get, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller,Delete,Get, Param, Patch, Post, UseFilters } from "@nestjs/common";
 import { CarService } from "./car.service";
 import { CreateCarDto } from "./dtos";
+import { ExceptionHandlerFilter } from "src/filters";
 
 @Controller('cars')
 export class CarController {
     constructor(private readonly carService: CarService) {}
 
     @Get("/")
+    @UseFilters(ExceptionHandlerFilter)
     async getAllCars():Promise<any> {
         return await this.carService.getAllCars();
     }
