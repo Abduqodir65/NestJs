@@ -1,7 +1,19 @@
-export declare interface CreateOrderDto {
-    car_id: number;  
-    customer_id: number; 
-    start_time: string;    
-    finish_time: string;   
-    total_amount: number;  
+import { IsInt, IsNumber, IsDateString } from 'class-validator';
+
+export class CreateOrderDto {
+
+    @IsInt()
+    car_id: number;
+
+    @IsInt()
+    customer_id: number;
+
+    @IsDateString()
+    start_time: string;
+
+    @IsDateString()
+    finish_time: string;
+
+    @IsNumber()
+    total_amount: number;
 }
