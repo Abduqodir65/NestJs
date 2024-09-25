@@ -16,6 +16,16 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@postgres": ["./src/postgres"],
+      "@modules": ["./src/modules"],
+      "@utils": ["./src/utils"],
+      "@config": ["./src/config"],
+      "@pipes": ["./src/pipes"],
+      "@filters": ["./src/filters"],
+      "@middlewares": ["./src/middlewares"]
+
+    }
   }
 }

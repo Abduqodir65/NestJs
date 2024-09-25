@@ -2,13 +2,20 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app';
 import { ExceptionHandlerFilter } from './filters';
 import * as morgan from 'morgan';
-import { ValidationPipe } from '@nestjs/common';
+import { BadRequestException, HttpStatus, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
   app.useGlobalFilters(new ExceptionHandlerFilter())
-  app.useGlobalPipes(new ValidationPipe())
+
+  app.useGlobalPipes(new ValidationPipe({
+      exceptionFactory(errors) {
+        const errorMags = errors.map((err) => Object.values(err.constraints).join(', '))
+        throw new BadRequestException(errorMags.join(' && '))
+      }
+  }))
+
   app.use(morgan('tiny'))
 
   await app.listen(3000,() => { 

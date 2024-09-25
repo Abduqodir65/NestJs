@@ -8,6 +8,8 @@ export class ExceptionHandlerFilter implements ExceptionFilter {
         const request = ctx.getRequest<Request>();
         const response = ctx.getResponse<Response>();
 
+        console.log(exception.message)
+        
         const requestTime = new Date().toISOString();
 
         if(exception instanceof HttpException){
