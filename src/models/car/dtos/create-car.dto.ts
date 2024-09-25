@@ -21,6 +21,6 @@ export class CreateCarDto {
     vehicles: number;
 
     @IsNumber()
-    @Type(() => Number) // Convert string input to number
+    @Type(() => Number) 
     daily_price: number;
 }
