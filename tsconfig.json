@@ -24,8 +24,9 @@
       "@config": ["./src/config"],
       "@pipes": ["./src/pipes"],
       "@filters": ["./src/filters"],
-      "@middlewares": ["./src/middlewares"]
-
+      "@middlewares": ["./src/middlewares"],
+      "@decoratos": ["./src/decorators"],
+      "@guards": ["./src/guards"]
     }
   }
 }

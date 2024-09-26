@@ -3,7 +3,7 @@ import { number } from "joi";
 
 export class ParseIntCustomPipe implements PipeTransform {
     #defaultNumber = number
-    
+
     transform(value: any, metadata: ArgumentMetadata) {
         if (!value) return this.#defaultNumber
 
@@ -16,6 +16,6 @@ export class ParseIntCustomPipe implements PipeTransform {
 
             return number
         }
-
+        
     }
 }
